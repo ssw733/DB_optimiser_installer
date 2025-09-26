@@ -4,7 +4,9 @@ WORKDIR /var/www/html
 
 RUN apt update && apt install -y \
     libpq-dev \
-    git
+    git \
+    zip \
+    unzip
 
 RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
