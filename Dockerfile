@@ -14,7 +14,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN git clone https://github.com/ssw733/DB_optimizer.git && \
     cd DB_optimizer && \
-    composer i 
+    composer i && \
+    php artisan migrate
 
 EXPOSE 9000
 

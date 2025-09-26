@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: large_db
+    container_name: DB_optimizer
     restart: unless-stopped
     environment:
       - DB_CONNECTION=pgsql
@@ -17,6 +17,10 @@ services:
       - DB_PASSWORD=admin
       - SEEDER_BATCH_SIZE=1000
       - S3_EMAILS_BATCH_SIZE=10
+      - MINIO_ENDPOINT=127.0.0.1:9000
+        #MINIO_ACCESS_KEY=your_access_key
+        #MINIO_SECRET_KEY=your_secret_key
+        #MINIO_BUCKET=s3_bucket
     depends_on:
       - db
   nginx:
